@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: reference_plan_ots_plugin.html 
+keywords: plan, planning, vcenter plug-in, deploy plug-in 
+summary: Ao implantar o ONTAP Select em um ambiente VMware, você pode usar o plug-in do VMware vCenter em vez do utilitário de administração implantar. 
+---
+= Plug-in do VMware vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ao implantar o ONTAP Select em um ambiente VMware, você pode usar o plug-in do VMware vCenter em vez do utilitário de administração implantar.
+
+O plug-in do VMware vCenter é fornecido com o utilitário de administração implantar. Para usar o plug-in, você deve instalar o utilitário implantar e usar a interface de usuário implantar para instalar o plug-in no servidor vCenter. Depois que o plug-in for instalado, você poderá usar a interface de usuário da Web vSphere para implantar e administrar clusters do ONTAP Select. Além de gerenciar o próprio plug-in (instalação, remoção, atualização), a funcionalidade fornecida com o plug-in é equivalente à interface do usuário do utilitário de implantação.
+
+Consulte link:concept_vpi_overview.html["Integrar com o vCenter"]a secção para conhecer os requisitos e restrições, bem como informações sobre a instalação e utilização do plug-in.

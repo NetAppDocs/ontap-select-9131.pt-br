@@ -1,0 +1,132 @@
+---
+sidebar: sidebar 
+permalink: task_vpi_manually_remove.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, vcenter, remove, removing, manually removing 
+summary: Você pode remover manualmente o plug-in de implantação do vCenter Server. 
+---
+= Remoção manual do plug-in de implantação do vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode remover manualmente o plug-in de implantação do vCenter Server.
+
+
+
+== Antes de começar
+
+Você sempre deve começar removendo o plug-in usando o VMware Managed Object Browser (MOB) e, em seguida, removendo-o dos diretórios vSphere dentro do vCenter Server.
+
+Existem várias instâncias em que você deve remover manualmente o plug-in:
+
+* O plug-in foi removido usando a interface de usuário nativa do utilitário implantar, mas o servidor vCenter não pôde ser reinicializado.
+* O utilitário de implantação foi desativado sem remover o plug-in.
+
+
+
+
+== Use o VMware MOB para remover o plug-in
+
+O MOB é um aplicativo da VMware que permite visualizar e gerenciar os objetos em um servidor VMware vCenter. Você pode usar o MOB para remover o plug-in Deploy vCenter.
+
+.Passos
+. Acesse o MOB no servidor vCenter usando um navegador e faça login:
++
+`\https://<FQDN_or_IP-address>/mob`
+
+. Clique em *Content* e, em seguida, clique em *ExtensionManager*.
+. Confirme se a extensão a ser removida está presente com base no nome completo:
++
+`com.netapp.selectdeploy`
+
+. Clique em *UnregisterExtension*.
+. Digite o nome da extensão e clique em *InvokeMethod*.
+
+
+.Resultado
+O plug-in é removido da lista de extensões.
+
+
+
+== Remova o plug-in da pasta da IU do vSphere
+
+Você deve examinar o diretório da IU do vSphere no servidor vCenter e remover o plug-in de implantação, se encontrado.
+
+.Antes de começar
+Você deve ter a senha para a conta raiz no servidor vCenter. Você deve remover o plug-in usando o vSphere MOB.
+
+.Passos
+. Use o SSH para acessar o servidor vCenter e fazer login:
++
+`ssh root@<FQDN_or_IP-address>`
+
+. Digite *shell* e pressione *Enter* para iniciar o shell Bash.
+. Navegue até o `vsphere-client-serenity` diretório do serviço vSphere-UI:
++
+`cd /etc/vmware/vsphere-ui/vc-packages/vsphere-client-serenity`
+
+. Determine se há diretórios do formulário `com.netapp.selectdeploy` que devem ser removidos:
++
+`ls -al`
+
+. Pare o cliente web vSphere-UI do HTML5:
++
+`service-control --stop vsphere-ui`
+
+. Remova o diretório que contém as extensões da IU:
++
+`rm -rf com.netapp.selectdeploy-1.0.0`
+
+. Reinicie o cliente Web vSphere-UI do HTML5:
++
+`service-control --start vsphere-ui`
+
+
+
+.Depois de terminar
+Pode levar vários minutos para que o plug-in de implantação seja reiniciado e fique disponível.
+
+
+
+== Remova o plug-in da pasta do cliente vSphere
+
+Você deve examinar o diretório vSphere Client no servidor vCenter e remover o plug-in de implantação, se encontrado. Embora o plug-in de implantação não use o Flash, é uma prática recomendada examinar esse diretório como parte do procedimento de remoção do plug-in.
+
+.Antes de começar
+Você deve ter a senha para a conta raiz no servidor vCenter. Você deve remover o plug-in usando o vSphere MOB e remover o plug-in do diretório da IU do vSphere.
+
+.Passos
+. Use o SSH para acessar o servidor vCenter e fazer login:
++
+`ssh root@<FQDN_or_IP-address>`
+
+. Digite *shell* e pressione *Enter* para iniciar o shell Bash.
+. Navegue até o `vsphere-client-serenity` diretório do serviço vSphere-Client:
++
+`cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity`
+
+. Determine se há diretórios do formulário `com.netapp.selectdeploy` que devem ser removidos:
++
+`ls -al`
+
+. Pare o cliente web vSphere-UI do HTML5:
++
+`service-control --stop vsphere-client`
+
+. Remova o diretório que contém as extensões do cliente:
++
+`rm -rf com.netapp.selectdeploy-1.0.0`
+
+. Reinicie o cliente Web vSphere-UI do HTML5:
++
+`service-control --start vsphere-client`
+
+
+
+.Depois de terminar
+Pode levar vários minutos para que o plug-in de implantação seja reiniciado e fique disponível.

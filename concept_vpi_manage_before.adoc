@@ -1,0 +1,100 @@
+---
+sidebar: sidebar 
+permalink: concept_vpi_manage_before.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, manage, managing 
+summary: Há várias coisas que você precisa fazer antes de instalar e gerenciar o plug-in Deploy vCenter. 
+---
+= Antes de começar
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Há várias coisas que você precisa fazer antes de instalar e gerenciar o plug-in Deploy vCenter.
+
+
+
+== Decida se deseja usar a interface de usuário da Web Deploy ou a CLI
+
+Na maioria das situações, a interface de usuário da Web Deploy fornece a opção mais conveniente ao gerenciar o plug-in do vCenter, e essa é a opção descrita neste procedimento. No entanto, você também pode gerenciar o plug-in usando a interface de linha de comando implantar. Para obter mais informações, digite os seguintes comandos no prompt Deploy CLI:
+
+* `deploy plugin ?` (Os subcomandos incluem: Instalar, remover, mostrar e atualizar)
+* `deploy plugin-packages show`
+
+
+
+
+== Preparação comum a todas as tarefas de gestão
+
+Existem várias etapas que você deve tomar independentemente da tarefa de gerenciamento. A preparação comum inclui:
+
+* Ler a seção primeiros passos para se familiarizar com o plug-in Deploy vCenter.
+* Garantir que o utilitário de administração ONTAP Select Deploy esteja instalado e em execução. Consulte a documentação de instalação e implantação de cluster para VMware para obter mais informações.
+* Adquirindo as credenciais da conta:
++
+** Implantar conta de administrador
+** Contas do vCenter Server
+
+
+* Garantir que o utilitário de implantação tenha acesso à rede à porta 443 no servidor vCenter.
+
+
+Pode ser necessária uma preparação adicional, dependendo da tarefa de gestão.
+
+
+
+== Prepare as contas do vCenter Server
+
+Antes de instalar e usar o plug-in de implantação, você deve criar as contas do vCenter com o Privileges necessário. Você pode criar uma única conta com todos os Privileges necessários ou criar várias contas cada uma com um único privilégio. Para simplificar, o exemplo a seguir distribui o vCenter Privileges em três funções separadas que podem ser atribuídas às três contas correspondentes.
+
+
+
+=== Valide o acesso do usuário final ao plug-in
+
+Você precisa de uma conta para validar o acesso ao plug-in por meio do vSphere. A conta deve ter o seguinte privilégio do vCenter: sessions.validate.session. Depois que a conta for criada no vCenter, você deverá defini-la para o utilitário de administração implantar. Na interface de usuário da Web Deploy, clique na guia Administration (Administração) e depois em Credentials (credenciais) para fornecer a localização e as credenciais do servidor vCenter.
+
+Esta conta é usada das seguintes maneiras:
+
+* O servidor vCenter nomeado fica disponível como um destino de instalação na janela de diálogo de Registro do plug-in.
+* A conta é usada pelo Deploy para validar as solicitações de usuário do vSphere para acessar o plug-in após a instalação do plug-in.
+
+
+
+
+=== Gerencie o plug-in
+
+Na interface de usuário da Web implantar, você pode instalar o plug-in e, em seguida, atualizá-lo ou removê-lo. Cada vez que você executar uma dessas ações de gerenciamento, você será solicitado a fornecer uma conta do vCenter na janela pop-up. Cada uma das ações de gerenciamento é controlada por meio de um privilégio do vCenter separado.
+
+Para instalar, atualizar e remover o plug-in, você deve atribuir o seguinte Privileges:
+
+* Extensão
++
+** Registre a extensão
+** Atualizar extensão
+** Anular registo da extensão
+
+
+
+
+Você pode criar uma única função e conta com todos os três Privileges ou dividir o Privileges entre várias contas conforme necessário.
+
+
+
+=== Aceda ao plug-in
+
+Os usuários finais podem acessar o plug-in pelo vSphere. Tem de atribuir o seguinte privilégio às contas que irão utilizar o plug-in:
+
+* NetApp
++
+** ONTAP Select Deploy
++
+*** Administrador
+
+
+
+
+

@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: concept_vpi_overview.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, overview, functionality 
+summary: O plug-in do VMware vCenter para ONTAP Select Deploy foi projetado para administradores do ONTAP Select que trabalham no ambiente VMware. Ele fornece uma alternativa à interface de usuário de implantação nativa. 
+---
+= Visão geral do plug-in Deploy vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O plug-in do VMware vCenter para ONTAP Select Deploy foi projetado para administradores do ONTAP Select que trabalham no ambiente VMware. Ele fornece uma alternativa à interface de usuário de implantação nativa.
+
+
+
+== Fornecido com o Deploy
+
+O plug-in Deploy vCenter é fornecido com o utilitário de administração implantar. Depois de usar a interface de usuário implantar para instalar o plug-in no servidor vCenter, você pode acessar o plug-in por meio da interface da Web do vSphere.
+
+
+
+== Integração com VMware
+
+Para muitas empresas, o VMware vCenter é uma plataforma central para administrar recursos de nuvem e data center virtualizados. Como o plug-in de implantação está totalmente integrado ao vCenter, os administradores podem migrar rapidamente entre os domínios ONTAP Select e vCenter para aproveitar as relações entre os vários recursos.
+
+
+
+== Funcionalidade fornecida pelo plug-in Deploy vCenter
+
+Depois de instalar o plug-in Deploy vCenter, há duas opções principais disponíveis pelo vSphere no painel *Global Inventory Lists*.
+
+
+
+=== Clusters ONTAP Select
+
+A opção ONTAP Select clusters é aproximadamente equivalente à guia *clusters* na interface de usuário da Web de implantação nativa. Ele fornece a funcionalidade descrita na tabela a seguir.
+
+[cols="30,70"]
+|===
+| Executa esta operação ... | Fazendo isso ... 
+
+
+| Implantar um cluster do ONTAP Select | Clique em novo ONTAP Select. 
+
+
+| Exibir detalhes do cluster | Selecione um cluster, clique em Resumo e, em seguida, clique em Detalhes. 
+
+
+| Exibir mensagens de eventos do cluster | Selecione um cluster, clique em Resumo e, em seguida, clique em Eventos. 
+
+
+| Mova um cluster online ou offline ou exclua um cluster | Selecione um cluster, clique em ações e, em seguida, clique na ação desejada. 
+
+
+| Inicie o System Manager | Selecione um cluster, clique em Resumo, clique em Detalhes e, em seguida, clique em Iniciar Gerenciador do sistema. 
+
+
+| Visualize os hosts ESXi usados por um cluster | Selecione um cluster, clique em mais objetos e, em seguida, clique em hosts. Selecione um host para obter mais detalhes e ações adicionais. 
+
+
+| Visualize as VMs do ONTAP usadas por um cluster | Selecione um cluster, clique em mais objetos e, em seguida, clique em ONTAP VMs. Selecione uma VM para obter mais detalhes e ações adicionais. 
+
+
+| Visualize os datastores usados por um cluster | Selecione um cluster, clique em mais objetos e, em seguida, clique em datastores. Selecione um datastore para obter mais detalhes e ações adicionais. 
+
+
+| Visualize as redes usadas por um cluster | Selecione um cluster, clique em mais objetos e, em seguida, clique em redes. Selecione uma rede para obter mais detalhes e ações adicionais. 
+|===
+
+
+=== ONTAP Select Deploy
+
+A opção ONTAP Select Deploy é aproximadamente equivalente às guias *hosts do hipervisor* e *Administration* na interface nativa de implantação da Web. Ele fornece funcionalidade através de três guias na parte superior da página, conforme descrito na tabela a seguir.
+
+[cols="15,85"]
+|===
+| Separador | Descrição 
+
+
+| Resumo | Descreve as caraterísticas da instância de implantação, incluindo o nome do host e o endereço IP. 
+
+
+| Host | Exibe informações sobre os hosts ESXi registrados no ONTAP Select Deploy. Você pode adicionar ou remover hosts. 
+
+
+| Administração | Permite executar tarefas administrativas através do utilitário Deploy. Essa funcionalidade é equivalente à interface de usuário nativa do ONTAP Select Deploy, exceto que as opções *credenciais* e *Plugins* não estão disponíveis com o plug-in. 
+|===
+
+
+== Compare o plug-in do vCenter com a interface de usuário de implantação nativa
+
+A funcionalidade fornecida com o plug-in do vCenter por meio do vSphere é equivalente à interface de usuário de implantação nativa. No entanto, existem alguns recursos que não são fornecidos com o plug-in e só estão disponíveis com a interface de usuário de implantação.
+
+
+
+=== Gerencie o plug-in do vCenter
+
+Não é possível instalar, atualizar, remover ou verificar o plug-in do vCenter usando o plug-in do vCenter. Você deve executar essas tarefas de gerenciamento por meio da interface de usuário de implantação nativa.
+
+
+
+=== Gerenciar credenciais do vCenter
+
+Antes de instalar o plug-in do vCenter, você deve adicionar as credenciais do vCenter necessárias para implantar usando a interface de usuário de implantação nativa.
+
+
+
+=== Os clusters do ONTAP Select devem ser controlados pelo mesmo servidor do vCenter
+
+Você só pode implantar e dar suporte aos clusters do ONTAP Select gerenciados pelo único servidor vCenter no qual o plug-in está instalado. Não é possível usar o plug-in para acessar clusters do ONTAP Select gerenciados por outros servidores do vCenter ou clusters executados em hosts ESXi ou KVM autônomos.

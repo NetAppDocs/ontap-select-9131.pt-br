@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: task_vpi_adm_support.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, administer, administering, diagnostics, support 
+summary: Existem várias tarefas de diagnóstico e suporte relacionadas que podem ser executadas como parte da administração do ONTAP Select. 
+---
+= Diagnóstico e suporte
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Existem várias tarefas de diagnóstico e suporte relacionadas que podem ser executadas como parte da administração do ONTAP Select.
+
+
+
+== Apresentar as definições do sistema
+
+Você pode exibir as configurações básicas do utilitário de administração implantar por meio do vCenter Plugin.
+
+.Passos
+. Clique em *ONTAP Select Deploy* no painel *listas de inventário globais*.
+. Clique no separador *Administration* (Administração).
+. Expanda a opção *sistema* e clique em *Configurações*.
+. Atualize a configuração do sistema conforme necessário e clique em *Save*.
+
+
+
+
+== Exibir mensagens de eventos
+
+O utilitário de administração de implantação inclui um recurso de Registro de eventos que fornece informações sobre a atividade do sistema. Você pode visualizar o conteúdo do log de eventos por meio do plug-in implantar para depurar quaisquer problemas ou quando direcionado para fazê-lo pelo suporte.
+
+.Sobre esta tarefa
+Você pode filtrar a lista de mensagens de eventos com base em várias caraterísticas, incluindo:
+
+* Categoria
+* Tipo
+* Nível
+* Instância
+
+
+.Passos
+. Clique em *ONTAP Select Deploy* no painel *listas de inventário globais*.
+. Clique no separador *Administration* (Administração).
+. Expanda a opção *Eventos* e clique em *Deploy*.
+. Opcionalmente, clique em filtragem e crie um filtro para limitar as mensagens de evento exibidas.
+
+
+
+
+== Ative o AutoSupport
+
+O AutoSupport é a principal ferramenta de solução de problemas usada pelo NetApp para oferecer suporte ao ONTAP Select. Você pode ativar ou desativar o recurso AutoSupport conforme necessário.
+
+.Sobre esta tarefa
+Depois de implantar um novo cluster, você deve garantir que o AutoSupport esteja habilitado. Você só deve desativar o AutoSupport quando necessário. Se você desabilitar o AutoSupport, os dados ainda serão coletados, mas não transmitidos para o NetApp.
+
+.Passos
+. Clique em *ONTAP Select Deploy* no painel *listas de inventário globais*.
+. Clique no separador *Administration* (Administração).
+. Expanda a opção *AutoSupport* e clique em *Configurar*
+. Ative ou desative o AutoSupport conforme necessário.
+
+
+
+
+== Gerar um pacote AutoSupport
+
+O plug-in Deploy vCenter inclui a capacidade de gerar um pacote AutoSupport. Você deve gerar um pacote para depurar problemas ou quando direcionado para fazê-lo pelo suporte.
+
+.Sobre esta tarefa
+Você pode gerar os seguintes pacotes AutoSupport:
+
+* Implantar arquivos de log criados pelo utilitário ONTAP Select Deploy
+* Solução de problemas e informações de depuração sobre os hosts do hypervisor e os nós do ONTAP Select
+* Informações de desempenho sobre os hosts do hypervisor e os nós do ONTAP Select
+
+
+.Passos
+. Clique em *ONTAP Select Deploy* no painel *listas de inventário globais*.
+. Clique no separador *Administration* (Administração).
+. Expanda a opção *AutoSupport* e clique em *Generate*.
+. Selecione o tipo e forneça uma descrição para o pacote ou forneça um número de caso e clique em *Generate AutoSupport*.
+. No painel à esquerda, clique em *Histórico* em *AutoSupport* e localize o pacote.
++
+Você pode clicar em *Refresh* conforme necessário.
+
+
+
+.Depois de terminar
+Pode transferir o pacote AutoSupport para a estação de trabalho utilizando a interface de utilizador do utilitário de implementação nativo. Não é possível fazer o download do pacote usando o plug-in Deploy vCenter.

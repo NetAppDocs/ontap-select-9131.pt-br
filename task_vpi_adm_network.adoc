@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: task_vpi_adm_network.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, administer, administering, network, networking 
+summary: Existem vários aspetos da rede que você pode explorar e exibir. 
+---
+= Confirme a conetividade da rede
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Existem vários aspetos da rede que você pode explorar e exibir.
+
+
+
+== Confirme a conetividade da rede
+
+Você pode testar a conetividade de rede entre dois ou mais nós ONTAP Select na rede interna do cluster. Normalmente, você deve executar esse teste antes que um cluster de vários nós seja implantado para detetar problemas que possam causar falha na operação. Você também pode executar o teste de conetividade depois que um cluster é implantado e on-line.
+
+.Sobre esta tarefa
+Cada vez que você iniciar o teste, um novo processo é criado em segundo plano e atribuído um identificador de execução exclusivo. Apenas uma corrida pode estar ativa de cada vez.
+
+O teste é sempre executado no modo rápido que executa um teste básico sem interrupções. Um teste DE PING é executado, juntamente com um teste do tamanho da MTU da rede e do vSwitch.
+
+.Passos
+. Clique em *ONTAP Select Deploy* no painel *listas de inventário globais*.
+. Clique no separador *Administration* (Administração).
+. Expanda a opção *rede* e clique em *Verificador de conetividade*.
+. Clique em *Executar novo* para iniciar o teste.
+. Opcionalmente, clique em *Filtering* e crie um filtro para limitar os detalhes do teste que são exibidos.
+
+
+
+
+== Ver o status do serviço mediador
+
+Cada cluster de dois nós do ONTAP Select é monitorado pelo serviço de mediador, que ajuda a gerenciar a funcionalidade de HA compartilhada pelos nós. É possível exibir o status do serviço de mediador para cada um dos clusters de dois nós definidos no utilitário de administração implantar.
+
+.Sobre esta tarefa
+É possível visualizar a configuração de cada mediador, incluindo:
+
+* Estado atual
+* Dois nós de ONTAP Select
+* Destino iSCSI em que as informações de controle de HA são armazenadas
+
+
+.Passos
+. Clique em *ONTAP Select Deploy* no painel *listas de inventário globais*.
+. Clique no separador *Administration* (Administração).
+. Expanda a opção *Mediator* e clique em *Status*.
+. Opcionalmente, clique em *Filtering* e crie um filtro para personalizar a visualização dos clusters de dois nós monitorados pelo serviço mediador.
+

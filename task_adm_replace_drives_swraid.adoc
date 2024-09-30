@@ -1,0 +1,100 @@
+---
+sidebar: sidebar 
+permalink: task_adm_replace_drives_swraid.html 
+keywords: administer, administering, web, software raid, replace drive 
+summary: 'Quando uma unidade falha usando RAID de software, o ONTAP Select usa uma unidade sobressalente (se uma estiver disponível) e inicia o processo de reconstrução automaticamente. Isso é semelhante a como o ONTAP no FAS e AFF funciona. No entanto, se nenhuma unidade sobressalente estiver disponível, você precisará adicionar uma ao nó ONTAP Select.' 
+---
+= Substitua uma unidade com falha ao usar o SW RAID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando uma unidade que usa software RAID falha, o ONTAP Select atribui uma unidade sobressalente, se uma estiver disponível, e inicia o processo de reconstrução automaticamente. Isso é semelhante a como o ONTAP funciona no FAS e no AFF. No entanto, se nenhuma unidade sobressalente estiver disponível, você precisará adicionar uma ao nó ONTAP Select.
+
+
+NOTE: Tanto a remoção da unidade com falha quanto a adição de uma nova unidade (marcada como sobressalente) devem ser realizadas por meio do ONTAP Select Deploy. Anexar uma unidade à VM do ONTAP Select usando o vSphere não é compatível.
+
+
+
+== Identifique a unidade com falha
+
+Quando uma unidade falha, você precisa usar a CLI do ONTAP para identificar o disco com falha.
+
+.Passos
+. Faça login na CLI do ONTAP usando a conta de administrador.
+. Identifique a unidade de disco que falhou.
++
+[listing]
+----
+<cluster name>::> storage disk show -container-type broken
+Usable Disk Container Container
+Disk Size Shelf Bay Type Type Name Owner
+---------------- ---------- ----- --- ------- ----------- --------- --------
+NET-1.4 893.3GB - - SSD broken - sti-rx2540-346a'
+----
+
+
+
+
+== Remova a unidade com falha
+
+Depois de identificar a unidade que falhou, remova o disco.
+
+.Passos
+. Inicie sessão na interface de utilizador da Web Deploy utilizando a conta de administrador.
+. Clique na guia *clusters* e selecione o cluster relevante.
++
+image:ST_22.jpg["Detalhes do nó"]
+
+. Clique em ** para expandir a visualização de armazenamento.
++
+image:ST_23.jpg["Edite o storage do nó"]
+
+. Clique em *Editar* para fazer alterações nos discos anexados e desmarque a unidade com falha.
++
+image:ST_24.jpg["Detalhes do disco de armazenamento"]
+
+. Forneça as credenciais do cluster e clique em *Editar armazenamento*.
++
+image:ST_25.jpg["Credenciais ONTAP"]
+
+. Confirme a operação.
++
+image:ST_26.jpg["Aviso"]
+
+
+
+
+
+== Adicione a nova unidade sobressalente
+
+Depois de remover a unidade com falha, adicione o disco sobressalente.
+
+.Passos
+. Inicie sessão na interface de utilizador da Web Deploy utilizando a conta de administrador.
+. Clique na guia *clusters* e selecione o cluster relevante.
++
+image:ST_27.jpg["Par de HA"]
+
+. Clique em ** para expandir a visualização de armazenamento.
++
+image:ST_28.jpg["Edite o storage do nó"]
+
+. Clique em *Editar* e confirme se a nova unidade está disponível e selecione-a.
++
+image:ST_29.jpg["Detalhes do disco de armazenamento"]
+
+. Forneça as credenciais do cluster e clique em *Editar armazenamento*.
++
+image:ST_30.jpg["Detalhes do disco de armazenamento"]
+
+. Confirme a operação.
++
+image:ST_31.jpg["Detalhes do disco de armazenamento"]
+
+

@@ -1,0 +1,178 @@
+---
+sidebar: sidebar 
+permalink: task_vpi_deploy_cluster.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, deploy cluster, deploying cluster, create cluster, creating cluster 
+summary: Você pode usar o plug-in Deploy vCenter por meio da interface de usuário da Web vSphere para implantar clusters do ONTAP Select. 
+---
+= Implantar um cluster do ONTAP Select
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode usar o plug-in Deploy vCenter por meio da interface de usuário da Web vSphere para implantar clusters do ONTAP Select.
+
+
+
+== Antes de começar
+
+Você deve se preparar para usar o plug-in implantar o vCenter antes de implantar um cluster do ONTAP Select.
+
+
+
+=== Preparação comum para aglomerados de todos os tamanhos
+
+Existem várias etapas que você precisa executar, independentemente do tamanho do cluster:
+
+* Leia a seção _Getting Started_ para se familiarizar com o plug-in Deploy vCenter.
+* Certifique-se de que o utilitário de administração ONTAP Select Deploy está instalado e em execução.
+* Instale o plug-in Deploy vCenter.
+* Prepare o host ou hosts do hypervisor nos quais o cluster do ONTAP Select será executado.
+* Adquira os arquivos de licença de storage necessários para o nó ou nós no cluster.
+* Adquira as credenciais para as seguintes contas:
++
+** Implantar conta de administrador
+** Conta vCenter com acesso ao plug-in
+
+
+* Se necessário, instale o certificado SSL de implantação no Gerenciador de certificados do Windows como uma "Autoridade de Certificação raiz confiável".
+* Certifique-se de que o utilitário de implantação tenha acesso à rede à porta 443 no servidor vCenter.
+
+
+
+
+=== Preparação adicional para um cluster de vários nós
+
+Além da preparação comum, você deve estar familiarizado com o verificador de rede de implantação antes de implantar um cluster de vários nós.
+
+
+
+== Adicionar um host de hipervisor
+
+É possível adicionar hosts de hipervisores ao utilitário implantar no qual os nós do ONTAP Select serão executados antes de implantar um cluster. Se necessário, você pode adicionar os hosts como parte da caixa de diálogo de criação de cluster.
+
+.Antes de começar
+Você deve rever preparando para implantar um cluster do ONTAP Select.
+
+.Sobre esta tarefa
+Você pode adicionar um ou mais hosts com base no tamanho do cluster.
+
+.Passos
+. Faça login no servidor vCenter através do vSphere HTML5 usando um navegador.
+. Na barra de ferramentas, clique em *Menu* e, em seguida, clique em *Global Inventory Lists*.
+. No painel à esquerda, clique em *ONTAP Select Deploy* e, em seguida, clique na guia *hosts*.
+. Clique em *Add* à direita.
+. Forneça o nome do host ou o endereço IP do host e clique em *Add* ou *Add and Exit*.
+
+
+
+
+== Crie um cluster de nó único
+
+Você pode usar o plug-in do VMware vCenter por meio do cliente da Web vSphere para implantar um cluster do ONTAP Select que consiste em um único nó.
+
+.Antes de começar
+Você deve revisar preparando para implantar um cluster do ONTAP Select e adicionar um host de hipervisor. Você pode adicionar o host no qual o nó ONTAP Select será executado antes de criar o cluster ou como parte da criação do cluster de nó único.
+
+.Passos
+. Faça login no servidor vCenter através do vSphere HTML5 usando um navegador.
+. Clique em *Menu* na parte superior e, em seguida, clique em *Global Inventory Lists*.
+. Clique em *clusters ONTAP Select* no painel à esquerda e, em seguida, clique em *novo ONTAP Select*.
++
+Se você não tiver aceitado previamente o certificado SSL, clique no link IP na mensagem de aviso e aceite o certificado. Em seguida, retorne à página do vCenter e clique no link na mensagem de aviso para recarregar a página.
+
+. Na página *novo ONTAP Select*, insira os detalhes do cluster e clique em *Concluído*.
+. Na seção *Configuração do nó*, forneça a configuração e selecione uma licença.
++
+Você pode alterar o nome do nó padrão e carregar uma nova licença, se necessário.
+
+. Na seção *Hypervisor e rede*, selecione o tipo de instância, host e redes.
++
+Você pode adicionar um host, se necessário. A licença para o nó deve atender ou exceder o tipo de instância.
+
+. Na seção *armazenamento*, selecione a capacidade de armazenamento e um pool de armazenamento.
++
+Opcionalmente, você pode ativar o RAID de software ao usar uma licença premium.
+
+. Clique em *Concluído* e reveja a configuração do cluster.
++
+Você pode alterar a configuração clicando em Editar em cada seção, conforme necessário.
+
+. Clique em *seguinte*.
+. Forneça a senha do administrador do ONTAP e clique em *criar cluster* para iniciar o processo de criação do cluster e clique em *OK* na janela pop-up de confirmação.
++
+Pode levar até 30 minutos para que o cluster seja criado.
+
+. Atualize a página e selecione o novo cluster e clique em *Summary* e *Details* para monitorar o processo de criação de cluster em várias etapas.
++
+
+TIP: Se a operação de criação de cluster for iniciada, mas não for concluída, a senha administrativa do ONTAP definida não será registrada. Nesse caso, você pode acessar a interface de gerenciamento do cluster ONTAP Select usando a senha `changeme123` com a `admin` conta.
+
+
+
+.Depois de terminar
+* Confirme se o recurso ONTAP Select AutoSupport está ativado.
+* Faça backup dos dados de configuração do ONTAP Select Deploy.
+
+
+
+
+== Crie um cluster de vários nós
+
+Você pode usar o plug-in do VMware vCenter por meio do cliente da Web vSphere para implantar um cluster do ONTAP Select composto por vários nós.
+
+.Antes de começar
+Você deve revisar preparando para implantar um cluster do ONTAP Select e adicionar um host de hipervisor. Você pode adicionar os hosts nos quais os nós do ONTAP Select serão executados antes de criar o cluster ou como parte da criação do cluster de vários nós.
+
+.Sobre esta tarefa
+Um cluster de vários nós do ONTAP Select consiste em um número par de nós. Os nós sempre são Unidos como pares de HA.
+
+.Passos
+. Faça login no servidor vCenter através do vSphere HTML5 usando um navegador.
+. Clique em *Menu* na parte superior e, em seguida, clique em *Global Inventory Lists*.
+. Clique em *clusters ONTAP Select* no painel à esquerda e, em seguida, clique em *novo ONTAP Select*
++
+Se você não tiver aceitado previamente o certificado SSL, clique no link IP na mensagem de aviso e aceite o certificado. Em seguida, retorne à página do vCenter e clique no link na mensagem de aviso para recarregar a página.
+
+. Na página *novo ONTAP Select*, insira os detalhes do cluster e clique em *Concluído*.
++
+A menos que você tenha um motivo para definir o tamanho da MTU do cluster, você deve aceitar o valor padrão e permitir a implantação fazer os ajustes necessários.
+
+. Na seção *Configuração do nó*, forneça a configuração e selecione licenças para os dois nós no par de HA.
++
+Você pode alterar os nomes de nós padrão e carregar novas licenças, se necessário.
+
+. Na seção *Hypervisor e rede*, selecione o tipo de instância, host e redes para cada nó.
++
+Você pode adicionar um host, se necessário. Tem de selecionar as três redes. A rede interna não pode ser igual à rede de gerenciamento ou de dados. As licenças para os nós devem atender ou exceder o tipo de instância.
+
+. Na seção *armazenamento*, selecione a capacidade de armazenamento e um pool de armazenamento.
++
+Opcionalmente, você pode ativar o RAID de software ao usar uma licença premium.
+
+. Se o cluster tiver quatro ou mais nós, você deverá configurar os nós nos pares de HA adicionais seguindo as mesmas etapas usadas para o primeiro par de HA.
+. Clique em *Concluído* e reveja a configuração do cluster.
++
+Você pode alterar a configuração clicando em *Editar* em cada seção conforme necessário.
+
+. Opcionalmente, execute o verificador de conetividade de rede para testar a conetividade entre os nós na rede de cluster interna.
+. Clique em *seguinte*.
+. Forneça a senha do administrador do ONTAP e clique em *criar cluster* para iniciar o processo de criação do cluster e clique em *OK* na janela pop-up de confirmação.
++
+Pode levar até 30 minutos para que o cluster seja criado.
+
+. Atualize a página e selecione o novo cluster e clique em *Summary* e *Details* para monitorar o processo de criação de cluster em várias etapas.
++
+
+TIP: Se a operação de criação de cluster for iniciada, mas não for concluída, a senha administrativa do ONTAP definida não será registrada. Nesse caso, você pode acessar a interface de gerenciamento do cluster ONTAP Select usando a senha `changeme123` com a `admin` conta.
+
+
+
+.Depois de terminar
+* Confirme se o recurso ONTAP Select AutoSupport está ativado.
+* Faça backup dos dados de configuração do ONTAP Select Deploy.
+

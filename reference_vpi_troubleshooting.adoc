@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: reference_vpi_troubleshooting.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, troubleshooting 
+summary: Você deve estar ciente das técnicas de solução de problemas disponíveis e dos erros comuns como parte do suporte ao plug-in Deploy vCenter. 
+---
+= Solução de problemas
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você deve estar ciente das técnicas de solução de problemas disponíveis e dos erros comuns como parte do suporte ao plug-in Deploy vCenter.
+
+
+
+== Erros de instalação, desinstalação e atualização
+
+Se ocorrer um erro durante a instalação, desinstalação ou um procedimento de atualização, a API retornará uma mensagem de erro exibida pela interface de implantação usada para iniciar o procedimento (interface de usuário da Web ou CLI).
+
+Os erros comuns incluem o seguinte:
+
+* Credenciais incorretas (nome de usuário ou senha)
+* Plug-in inválido ou ausente especificado para instalação
+* O vCenter Server está offline ou inacessível
+
+
+Para obter informações adicionais sobre um erro, examine os seguintes logs:
+
+* Implantar log do servidor
+* Log do servidor do vCenter
+
+
+
+
+== Erros de plug-in no vCenter
+
+Se ocorrer um erro durante uma sessão com o vCenter, uma mensagem de erro será exibida. Os erros comuns incluem o seguinte:
+
+* Falha ao carregar conteúdo incorporado no vCenter a partir do servidor de implantação porque o certificado SSL do servidor de implantação não foi aceito no navegador.
+* O servidor de implantação não autoriza o Session ID para um usuário do vCenter que está tentando acessar o plug-in implantar vCenter. O tempo limite da sessão.
+* Privileges insuficiente para acessar o plug-in implantar vCenter.
+* O servidor de implantação está offline ou inacessível.
+
+
+Para obter informações adicionais sobre um erro, consulte os seguintes logs:
+
+* Log do servidor do vCenter
+* Implantar log do servidor
+

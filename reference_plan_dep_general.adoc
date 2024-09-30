@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: reference_plan_dep_general.html 
+keywords: plan, planning, ontap select deploy, general requirements 
+summary: Existem vários requisitos gerais que você deve considerar como parte do Planejamento para instalar o utilitário de administração ONTAP Select Deploy. 
+---
+= ONTAP Select implantar requisitos gerais e Planejamento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Existem vários requisitos gerais que você deve considerar como parte do Planejamento para instalar o utilitário de administração ONTAP Select Deploy.
+
+
+
+== Emparelhar o utilitário Deploy com os clusters ONTAP Select
+
+Você tem várias opções ao emparelhar uma instância do utilitário implantar com os clusters do ONTAP Select.
+
+
+NOTE: Em todos os cenários de implantação, um único cluster ONTAP Select e os nós no cluster podem ser gerenciados por apenas uma instância do utilitário de administração implantar. Um cluster não pode ser gerenciado por duas ou mais instâncias diferentes do utilitário implantar.
+
+.Uma instância do utilitário para cada cluster ONTAP Select
+Você pode implantar e gerenciar cada cluster do ONTAP Select usando uma instância dedicada do utilitário implantar. Com esta configuração um-para-um, há uma separação clara entre cada um dos emparelhamentos de utilitário para cluster. Essa configuração fornece um alto nível de isolamento com domínios de falha menores.
+
+.Uma instância do utilitário para vários clusters ONTAP Select
+Você pode implantar e gerenciar vários clusters do ONTAP Select na sua organização usando uma única instância do utilitário implantar. Com esta configuração um-para-muitos, todos os dados de processamento e configuração são gerenciados pela mesma instância do utilitário de implantação.
+
+
+NOTE: Uma instância do utilitário implantar pode administrar até 400 nós ONTAP Select ou 100 clusters.
+
+
+
+== Autenticação usando o armazenamento de credenciais
+
+O armazenamento de credenciais ONTAP Select Deploy é um banco de dados contendo informações de conta. O Deploy usa as credenciais da conta para executar a autenticação do host como parte da criação e gerenciamento do cluster. Você deve estar ciente de como o armazenamento de credenciais é usado como parte do Planejamento de uma implantação do ONTAP Select.
+
+
+NOTE: As informações da conta são armazenadas de forma segura no banco de dados usando o algoritmo de criptografia AES e o algoritmo de hash SHA-256.
+
+.Tipos de credenciais
+São suportados os seguintes tipos de credenciais:
+
+* Host usado para autenticar um host de hipervisor como parte da implantação de um nó ONTAP Select diretamente no VMware ESXi
+* O vCenter é usado para autenticar um servidor vCenter como parte da implantação de um nó do ONTAP Select no ESXi quando o host é gerenciado pelo VMware vCenter
+
+
+.Acesso
+O armazenamento de credenciais é acessado internamente como parte da execução de tarefas administrativas normais usando o Deploy, como a adição de um host de hipervisor. Você também pode gerenciar o armazenamento de credenciais diretamente por meio da interface de usuário da Web Deploy e da CLI.

@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: task_vpi_upgrade.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, upgrade, verify, remove 
+summary: Você pode usar a interface de usuário da Web do ONTAP Select Deploy para atualizar ou remover o plug-in de implantação do vCenter Server. Você também pode verificar se o plug-in ainda está instalado. 
+---
+= Verifique e remova o plug-in Deploy vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode usar a interface de usuário da Web do ONTAP Select Deploy para atualizar ou remover o plug-in de implantação do vCenter Server. Você também pode verificar se o plug-in ainda está instalado.
+
+.Antes de começar
+* Revisão link:concept_vpi_manage_before.html["Antes de começar"].
+* O plug-in do VMware vCenter deve ser instalado e registrado.
+* A conta de administrador do vCenter deve ter o seguinte vCenter Privileges:
++
+** Extensão
++
+*** Atualizar extensão
+*** Anular registo da extensão
+
+
+
+
+
+
+.Passos
+. Inicie sessão no utilitário de implementação utilizando a conta de administrador.
+. Clique na guia *Administration* na parte superior da página e, em seguida, clique em *Management Servers* no painel à esquerda.
+. Selecione o servidor de gerenciamento de destino e clique image:icon_kebab.gif["Opções"] e, opcionalmente, selecione em:
++
+.. *Verifique o Plugin*
+.. *Anular Registro Plugin*
+
+
+. Forneça as credenciais do vCenter, se solicitado.
+
+
+.Depois de terminar
+Se você remover o plug-in, deverá executar uma das seguintes tarefas para concluir a remoção do vCenter Server:
+
+* Reinicie o servidor vCenter
+* Remova manualmente o plug-in do servidor vCenter
+

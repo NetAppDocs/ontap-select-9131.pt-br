@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: concept_vpi_vcenter_integration.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, vcenter integration 
+summary: O plug-in de implantação é totalmente integrado ao servidor vCenter. Devido a essa integração, você pode navegar facilmente entre os recursos gerenciados pelo utilitário implantar e o vCenter Server. Vários exemplos dessa integração são fornecidos abaixo. 
+---
+= Implante a integração do plug-in e do vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O plug-in de implantação é totalmente integrado ao servidor vCenter. Devido a essa integração, você pode navegar facilmente entre os recursos gerenciados pelo utilitário implantar e o vCenter Server. Vários exemplos dessa integração são fornecidos abaixo.
+
+
+
+== Recursos VMware atribuídos a um cluster do ONTAP Select
+
+Um cluster do ONTAP Select é executado no VMware como um conjunto de um ou mais nós. Cada nó é uma máquina virtual dedicada em um host ESXi diferente. Um cluster do ONTAP Select está associado aos seguintes recursos da VMware:
+
+* Hosts
+* VMs ONTAP
+* Armazenamentos de dados
+* Redes
+
+
+Há várias maneiras de exibir os recursos da VMware usados por um cluster ONTAP Select específico.
+
+
+
+== Visualize os recursos da VMware de um cluster por meio do plug-in
+
+Você pode exibir os recursos VMware atribuídos a um cluster do ONTAP Select por meio do plug-in Deploy.
+
+.Passos
+. Faça login no servidor vCenter através do vSphere HTML5 usando um navegador.
+. Clique em *clusters ONTAP Select* no painel *listas de inventário globais*.
+. Clique no cluster desejado na lista à direita.
+. Clique na guia *mais objetos* e selecione a categoria de recurso desejada na parte superior da página.
+. Selecione um recurso específico da VMware para exibir informações adicionais.
+
+
+
+
+== Visualize os clusters do ONTAP Select por meio de uma máquina virtual ESXi
+
+Você pode exibir o cluster do ONTAP Select e os recursos de cluster associados acessando uma máquina virtual VMware.
+
+.Passos
+. Faça login no servidor vCenter através do vSphere HTML5 usando um navegador.
+. Clique em *Menu* na parte superior e, em seguida, clique em *VMs e modelos*.
+. Selecione a máquina virtual desejada na lista à esquerda.
+. Clique na guia *mais objetos* para exibir o cluster do ONTAP Select em execução na VM.
+. Para ver toda a coleção de recursos VMware associados ao cluster, clique no cluster ONTAP Select e, em seguida, clique na guia *mais objetos*.
+
+
+
+
+== Crie um cluster de nó único em um host ESXI
+
+Você pode selecionar um host de hypervisor ESXI por meio da interface do vSphere e implantar um cluster de nó único do ONTAP Select.
+
+.Passos
+. Faça login no servidor vCenter através do vSphere HTML5 usando um navegador.
+. Clique em *Menu* na parte superior e, em seguida, clique em *hosts e clusters*.
+. Clique com o botão direito do Mouse no host do hypervisor desejado à esquerda, selecione *ONTAP Select* e clique em *novo ONTAP Select*.
+. Conclua o processo de implantação seguindo as etapas em link:task_deploy_cluster.html["Implantar um cluster do ONTAP Select"].
+

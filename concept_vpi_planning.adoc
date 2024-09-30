@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: concept_vpi_planning.html 
+keywords: vcenter, plug-in, vcenter plug-in, deploy plug-in, planning 
+summary: Antes de instalar e usar o plug-in Deploy vCenter, você deve se preparar para garantir o sucesso. 
+---
+= Planeje usar o plug-in Deploy vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Antes de instalar e usar o plug-in Deploy vCenter, você deve se preparar para garantir o sucesso.
+
+
+
+== Requisitos de software
+
+Existem vários requisitos de software que você deve considerar como descrito na tabela a seguir.
+
+[cols="35,65"]
+|===
+| Software | Versão suportada 
+
+
+| Utilitário ONTAP Select Deploy | 2.11.2 ou posterior 
+
+
+| VMware vSphere | 6,5 GA ou posterior 
+
+
+| Interface de usuário do VMware vSphere | HTML5 (a versão baseada em Flash não é suportada) 
+
+
+| ESXi | 6.5U2 ou posterior 
+|===
+
+
+== Restrições de tamanho do cluster
+
+Há várias restrições relacionadas ao tamanho do cluster que você deve considerar, conforme descrito na tabela a seguir.
+
+[cols="35,65"]
+|===
+| Item | Máximo suportado 
+
+
+| ONTAP Select Deploy clusters | 100 
+
+
+| Nós (máquinas virtuais) | 1000 
+
+
+| Hosts | 800 
+|===
+
+
+== RBAC Privileges para as contas de usuário do vCenter
+
+Vários vCenter Privileges diferentes são necessários para gerenciar e acessar o plug-in. Esses Privileges correspondem às ações nas três categorias a seguir:
+
+* Gerenciamento do plug-in por meio da implantação:
++
+** Instale
+** Atualização
+** Retire
+
+
+* Acessando o plug-in por meio do cliente vSphere
+* Validando o acesso do usuário ao plug-in por meio do vSphere
+
+
+Consulte link:concept_vpi_manage_before.html#preparing-the-vcenter-server-accounts["Preparando as contas do vCenter Server"] para obter mais informações.
+
+
+
+== Limitações do AutoSupport
+
+O plug-in Deploy vCenter fornece uma quantidade mínima de informações de uso no utilitário de administração implantar (incluindo o URL do plug-in). No entanto, o AutoSupport inclui uma tabela dos plug-ins instalados que podem ser exibidos através do visualizador AutoSupport.
+
+
+NOTE: Você não pode baixar um pacote AutoSupport por meio do cliente da web vSphere usando o plug-in de implantação. Você deve usar a interface de implantação nativa para baixar pacotes do AutoSupport.
+
+
+
+== Restrições adicionais
+
+Há várias restrições adicionais que você deve considerar antes de instalar e usar o plug-in Deploy vCenter:
+
+* Cada instância do plug-in do vCenter suporta apenas um servidor vCenter.
+* Os servidores do vCenter configurados no modo vinculado não são suportados.
+* A GUI de plug-in de implantação no vSphere exibe somente clusters com máquinas virtuais ONTAP Select gerenciadas pelo mesmo servidor vCenter. Os clusters ONTAP Select executados em hosts ESXi e KVM independentes não estão incluídos.
+
