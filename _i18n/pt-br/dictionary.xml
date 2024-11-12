@@ -3649,7 +3649,6 @@
   <block id="d992c88e2d6aa9253fa092e4985204a1" category="list-text">Reinicie o servidor vCenter</block>
   <block id="ddf37cd48aa651a6dac23935c397562d" category="list-text">Remova manualmente o plug-in do servidor vCenter</block>
   <block id="20d1ab0feefc64acee2b330a6d8db177" category="sidebar">O NetApp ONTAP Select é um dispositivo de storage definido por software que você pode implantar em vários servidores de hardware comuns que executam o hipervisor VMware ESXi. Ele oferece a agilidade de que você precisa para criar uma infraestrutura de nuvem privada flexível e dimensionável. Este site contém a documentação do ONTAP Select 9.13.1.</block>
-  <block id="7436b418bed093768e360d32105591d2" category="sidebar">Documentação do ONTAP Select</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Comece agora</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">Notas de lançamento</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">O que há de novo</block>
@@ -3745,4 +3744,5 @@
   <block id="1c5ffa58ac07641f5cec5616c07b2ba2" category="sidebar">Adicione imagens ONTAP Select</block>
   <block id="0a15f7ba73868a32304fdf52855463c9" category="sidebar">Remover imagens ONTAP Select</block>
   <block id="afc9d68a1be701598b5ef94dc0be2844" category="sidebar">Recuperar o Deploy para um cluster de dois nós</block>
+  <block id="f630830f3860fe406fda620cc5421cf3" category="sidebar">Documentação do ONTAP Select 9.13.1</block>
 </blocks>
